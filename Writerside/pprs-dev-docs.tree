@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE instance-profile
+        SYSTEM "https://resources.jetbrains.com/writerside/1.0/product-profile.dtd">
+
+<instance-profile id="pprs-dev-docs"
+                 name="PPRS Developer Documentation" start-page="INDEX.md">
+
+    <toc-element topic="Welcome.md"/>
+    <toc-element topic="Database-API.md">
+        <toc-element topic="README.md"/>
+        <toc-element topic="INDEX.md"/>
+        <toc-element toc-title="Tables">
+            <toc-element topic="dashboard_kpi_cache.md"/>
+            <toc-element topic="data_access_log.md"/>
+            <toc-element topic="deadline_configurations.md"/>
+            <toc-element topic="deadline_extensions.md"/>
+            <toc-element topic="failed_login_attempts.md"/>
+            <toc-element topic="file_access_log.md"/>
+            <toc-element topic="indicator_annual_targets.md"/>
+            <toc-element topic="indicator_captures.md"/>
+            <toc-element topic="indicator_capture_history.md"/>
+            <toc-element topic="indicator_technical_details.md"/>
+            <toc-element topic="key_result_areas.md"/>
+            <toc-element topic="kra_activities.md"/>
+            <toc-element topic="mat_hod_dashboard.md"/>
+            <toc-element topic="notifications.md"/>
+            <toc-element topic="outcome_indicators.md"/>
+            <toc-element topic="password_resets.md"/>
+            <toc-element topic="pm_report_readiness.md"/>
+            <toc-element topic="programmes.md"/>
+            <toc-element topic="programme_overview_reports.md"/>
+            <toc-element topic="reporting_quarters.md"/>
+            <toc-element topic="reporting_years.md"/>
+            <toc-element topic="risks.md"/>
+            <toc-element topic="strategic_review_drafts.md"/>
+            <toc-element topic="system_settings.md"/>
+            <toc-element topic="uploaded_files.md"/>
+            <toc-element topic="users.md"/>
+            <toc-element topic="user_activity_log.md"/>
+            <toc-element topic="user_password_history.md"/>
+            <toc-element topic="user_programmes.md"/>
+            <toc-element topic="user_roles.md"/>
+            <toc-element topic="user_sessions.md"/>
+        </toc-element>
+    </toc-element>
+</instance-profile>
