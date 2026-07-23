@@ -105,14 +105,23 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
-  cleanup:
-    needs: deploy
+  cleanup-deployments:
     runs-on: ubuntu-latest
-    if: always()
     steps:
-      - name: Delete Deployments
-        uses: strumwolf/delete-deployment-environment@v2
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          environment: 'github-pages'
-          onlyRemoveDeployments: true
+      - name: Clean up older deployments
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          # Get all deployment IDs for the repository
+          DEPLOYMENT_IDS=$(gh api repos/${{ github.repository }}/deployments --jq '.[].id')
+
+          # Skip the first one (most recent) and delete the rest
+          echo "$DEPLOYMENT_IDS" | tail -n +2 | while read -r ID; do
+            if [ -n "$ID" ]; then
+              echo "Inactivating and deleting deployment ID: $ID"
+              # Mark inactive first (GitHub API requirement before deletion)
+              gh api -X POST repos/${{ github.repository }}/deployments/$ID/statuses -f state=inactive
+              # Delete the deployment
+              gh api -X DELETE repos/${{ github.repository }}/deployments/$ID
+            fi
+          done
